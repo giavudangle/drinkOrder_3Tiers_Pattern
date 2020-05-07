@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "drinkOrder_3Tiers_Pattern", "drinkOrder_3Tiers_Pattern\drinkOrder_3Tiers_Pattern.csproj", "{36525E67-3B8F-4400-9F29-AC9252732CF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36525E67-3B8F-4400-9F29-AC9252732CF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36525E67-3B8F-4400-9F29-AC9252732CF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36525E67-3B8F-4400-9F29-AC9252732CF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36525E67-3B8F-4400-9F29-AC9252732CF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E8E0F0C-6EAB-4E3A-ACC3-B2868F773059}
+	EndGlobalSection
+EndGlobal
