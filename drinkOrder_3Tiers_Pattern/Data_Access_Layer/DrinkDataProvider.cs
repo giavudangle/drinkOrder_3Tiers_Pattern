@@ -116,7 +116,68 @@ namespace drinkOrder_3Tiers_Pattern
             }
                        
         }
-       
+
+        public int SelectPrice_FromID(string id)
+        {
+            int res = 0;
+            SqlCommand command = new SqlCommand("SELECT Gia FROM DRINKS WHERE MSHH=@drinkID", connection);
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddWithValue("@drinkID", id);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                res = reader.GetInt32(0);
+            }
+            connection.Close();
+
+            return res;
+        }
+
+        public string SelectID_FromName(string name)
+        {
+            string res = "";
+            SqlCommand command = new SqlCommand("SELECT MSHH FROM DRINKS WHERE TenHang=@drinkName", connection);
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddWithValue("@drinkName", name);
+            connection.Open();
+
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                res = reader["MSHH"].ToString();
+            }
+
+            connection.Close();
+            return res;
+        }
+
+        public DataTable Select_ListDrinkName()
+        {
+            SqlCommand command = new SqlCommand("SELECT TenHang FROM DRINKS", connection);
+          
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            DataTable dt = new DataTable();
+            
+            try
+            {
+                while (reader.Read())
+                {
+                    
+                    dt.Load(reader);
+                    connection.Close();
+                    return dt;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+
+            return dt;
+        }
+
 
     }
 }

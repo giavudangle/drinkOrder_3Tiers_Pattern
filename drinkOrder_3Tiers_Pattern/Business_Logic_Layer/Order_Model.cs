@@ -37,5 +37,21 @@ namespace drinkOrder_3Tiers_Pattern.Business_Logic_Layer
                 throw;
             }
         }
+
+        public DataTable GetListOrderDetail()
+        {
+            try
+            {
+                OrderDataProvider orderDataProvider = new OrderDataProvider();
+                return orderDataProvider.fetchListOrderDetail();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
+        }
+
+       
     }
 }

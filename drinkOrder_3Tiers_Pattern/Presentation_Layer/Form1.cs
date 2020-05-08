@@ -1,4 +1,5 @@
 ﻿using drinkOrder_3Tiers_Pattern.Business_Logic_Layer;
+using drinkOrder_3Tiers_Pattern.Presentation_Layer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +24,7 @@ namespace drinkOrder_3Tiers_Pattern
             loadData_Order();
         }
 
-        private void loadData_Drink()
+        public void loadData_Drink()
         {            
             DataTable dt = DRINK_MODEL.GetListDrink();
             listDataDrink.DataSource = dt;
@@ -33,14 +34,16 @@ namespace drinkOrder_3Tiers_Pattern
             this.listDataDrink.Columns[3].HeaderText = "Product Status";
         }
 
-        private void loadData_Order()
+        public void loadData_Order()
         {
-            DataTable dt = ORDER_MODEL.GetListOrder();
+            DataTable dt = ORDER_MODEL.GetListOrderDetail();
             listOrder.DataSource = dt;
             this.listOrder.Columns[0].HeaderText = "Order ID";
             this.listOrder.Columns[1].HeaderText = "Product ID";
             this.listOrder.Columns[2].HeaderText = "Quantity";
             this.listOrder.Columns[3].HeaderText = "Sale(%)";
+            this.listOrder.Columns[4].HeaderText = "Date";
+            
         }
 
         private void listDataDrink_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -122,10 +125,6 @@ namespace drinkOrder_3Tiers_Pattern
             }
         }
 
-   
-        
-      
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string drinkID = textBox_productID.Text;
@@ -151,6 +150,46 @@ namespace drinkOrder_3Tiers_Pattern
             loadData_Drink();
             MessageBox.Show("Edit Product Sucessfully");
             resetContent_ListDrink();
+        }
+
+        private void btn_AddOrder_Click(object sender, EventArgs e)
+        {
+            AddOrder_Form addOrder_Form = new AddOrder_Form(this);
+            addOrder_Form.Show();
+            this.Visible = false;
+            
+
+            //addOrder_Form.FormClosed += new FormClosedEventHandler(this._addOrderClosed);
+        }
+
+        private void _addOrderClosed(object sender,FormClosedEventArgs e)
+        {
+            this.Show();
+        }
+
+        private void btn_Calculate_Click(object sender, EventArgs e)
+        {
+            double res = 0;
+            // res = (productPrice * quantity) * (salePercent/100)
+
+            string ID = listOrder.SelectedRows[0].Cells[1].Value.ToString();
+            Drink_Model DRINK_MODEL = new Drink_Model();
+            int getMoney = DRINK_MODEL.GetPrice_FromID(ID);
+           
+            int quantity = (int) listOrder.SelectedRows[0].Cells[2].Value;
+            int sale = (int)listOrder.SelectedRows[0].Cells[2].Value;
+            
+            double hihi = sale * 1.0 / 100;
+            int temp = getMoney * quantity;
+            res = temp - (temp * hihi);
+            MessageBox.Show(res.ToString() + " VND", "Giá trị đơn hàng là", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            loadData_Drink();
+            loadData_Order();
         }
     }
 }

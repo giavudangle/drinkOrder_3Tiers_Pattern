@@ -41,20 +41,11 @@
             this.textBox_status = new System.Windows.Forms.TextBox();
             this.listDataDrink = new System.Windows.Forms.DataGridView();
             this.listOrder = new System.Windows.Forms.DataGridView();
-            this.numberic_Quantity = new System.Windows.Forms.NumericUpDown();
-            this.numeric_Sale = new System.Windows.Forms.NumericUpDown();
-            this.cbx_DrinkName = new System.Windows.Forms.ComboBox();
-            this.txt_orderID = new System.Windows.Forms.TextBox();
-            this.labelORDER = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.btn_AddOrder = new System.Windows.Forms.Button();
             this.btn_Calculate = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.listDataDrink)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listOrder)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numberic_Quantity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numeric_Sale)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -65,7 +56,7 @@
             this.btnAdd.AutoSize = true;
             this.btnAdd.Location = new System.Drawing.Point(12, 523);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(150, 51);
+            this.btnAdd.Size = new System.Drawing.Size(150, 39);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "ADD DRINK";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -75,9 +66,9 @@
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btnEdit.AutoSize = true;
-            this.btnEdit.Location = new System.Drawing.Point(403, 523);
+            this.btnEdit.Location = new System.Drawing.Point(393, 523);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(163, 51);
+            this.btnEdit.Size = new System.Drawing.Size(163, 39);
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "EDIT DRINK";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -89,7 +80,7 @@
             this.btnDelete.AutoSize = true;
             this.btnDelete.Location = new System.Drawing.Point(203, 523);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(159, 51);
+            this.btnDelete.Size = new System.Drawing.Size(159, 39);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.TabStop = false;
             this.btnDelete.Text = "DELETE DRINK";
@@ -209,127 +200,52 @@
             // 
             // listOrder
             // 
+            this.listOrder.AllowUserToOrderColumns = true;
             this.listOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.listOrder.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.listOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listOrder.Location = new System.Drawing.Point(572, 49);
+            this.listOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listOrder.Location = new System.Drawing.Point(572, 106);
             this.listOrder.MultiSelect = false;
             this.listOrder.Name = "listOrder";
             this.listOrder.ReadOnly = true;
             this.listOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listOrder.Size = new System.Drawing.Size(493, 468);
+            this.listOrder.Size = new System.Drawing.Size(508, 468);
             this.listOrder.TabIndex = 14;
-            // 
-            // numberic_Quantity
-            // 
-            this.numberic_Quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.numberic_Quantity.Location = new System.Drawing.Point(886, 24);
-            this.numberic_Quantity.Name = "numberic_Quantity";
-            this.numberic_Quantity.Size = new System.Drawing.Size(80, 20);
-            this.numberic_Quantity.TabIndex = 15;
-            // 
-            // numeric_Sale
-            // 
-            this.numeric_Sale.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.numeric_Sale.Location = new System.Drawing.Point(985, 24);
-            this.numeric_Sale.Name = "numeric_Sale";
-            this.numeric_Sale.Size = new System.Drawing.Size(80, 20);
-            this.numeric_Sale.TabIndex = 16;
-            // 
-            // cbx_DrinkName
-            // 
-            this.cbx_DrinkName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbx_DrinkName.FormattingEnabled = true;
-            this.cbx_DrinkName.Location = new System.Drawing.Point(714, 22);
-            this.cbx_DrinkName.Name = "cbx_DrinkName";
-            this.cbx_DrinkName.Size = new System.Drawing.Size(154, 21);
-            this.cbx_DrinkName.TabIndex = 17;
-            // 
-            // txt_orderID
-            // 
-            this.txt_orderID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_orderID.Location = new System.Drawing.Point(591, 23);
-            this.txt_orderID.Name = "txt_orderID";
-            this.txt_orderID.Size = new System.Drawing.Size(100, 20);
-            this.txt_orderID.TabIndex = 18;
-            // 
-            // labelORDER
-            // 
-            this.labelORDER.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelORDER.AutoSize = true;
-            this.labelORDER.Location = new System.Drawing.Point(605, 3);
-            this.labelORDER.Name = "labelORDER";
-            this.labelORDER.Size = new System.Drawing.Size(44, 13);
-            this.labelORDER.TabIndex = 19;
-            this.labelORDER.Text = "OrderID";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(739, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Drink Name";
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(883, 3);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 13);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Quantity";
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1004, 2);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 13);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Sale(%)";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btn_AddOrder
             // 
-            this.btn_AddOrder.Location = new System.Drawing.Point(572, 523);
+            this.btn_AddOrder.Location = new System.Drawing.Point(598, 23);
             this.btn_AddOrder.Name = "btn_AddOrder";
-            this.btn_AddOrder.Size = new System.Drawing.Size(258, 51);
+            this.btn_AddOrder.Size = new System.Drawing.Size(181, 51);
             this.btn_AddOrder.TabIndex = 23;
             this.btn_AddOrder.Text = "ADD ORDER";
             this.btn_AddOrder.UseVisualStyleBackColor = true;
+            this.btn_AddOrder.Click += new System.EventHandler(this.btn_AddOrder_Click);
             // 
             // btn_Calculate
             // 
-            this.btn_Calculate.Location = new System.Drawing.Point(836, 523);
+            this.btn_Calculate.Location = new System.Drawing.Point(879, 23);
             this.btn_Calculate.Name = "btn_Calculate";
-            this.btn_Calculate.Size = new System.Drawing.Size(229, 51);
+            this.btn_Calculate.Size = new System.Drawing.Size(186, 51);
             this.btn_Calculate.TabIndex = 24;
             this.btn_Calculate.Text = "CALCULATE";
             this.btn_Calculate.UseVisualStyleBackColor = true;
+            this.btn_Calculate.Click += new System.EventHandler(this.btn_Calculate_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.label5.Location = new System.Drawing.Point(792, 86);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 17);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "ORDER LIST";
+            this.label5.UseCompatibleTextRendering = true;
             // 
             // Form1
             // 
@@ -337,16 +253,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1077, 574);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_Calculate);
             this.Controls.Add(this.btn_AddOrder);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.labelORDER);
-            this.Controls.Add(this.txt_orderID);
-            this.Controls.Add(this.cbx_DrinkName);
-            this.Controls.Add(this.numeric_Sale);
-            this.Controls.Add(this.numberic_Quantity);
             this.Controls.Add(this.listOrder);
             this.Controls.Add(this.listDataDrink);
             this.Controls.Add(this.textBox_status);
@@ -361,11 +270,9 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "ORDER DRINK";
             ((System.ComponentModel.ISupportInitialize)(this.listDataDrink)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listOrder)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numberic_Quantity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numeric_Sale)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,17 +291,10 @@
         private System.Windows.Forms.TextBox textBox_price;
         private System.Windows.Forms.DataGridView listDataDrink;
         private System.Windows.Forms.DataGridView listOrder;
-        private System.Windows.Forms.NumericUpDown numberic_Quantity;
-        private System.Windows.Forms.NumericUpDown numeric_Sale;
-        private System.Windows.Forms.ComboBox cbx_DrinkName;
-        private System.Windows.Forms.TextBox txt_orderID;
-        private System.Windows.Forms.Label labelORDER;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_AddOrder;
         private System.Windows.Forms.Button btn_Calculate;
         public System.Windows.Forms.TextBox textBox_status;
+        private System.Windows.Forms.Label label5;
     }
 }
 

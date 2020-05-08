@@ -37,28 +37,56 @@ namespace drinkOrder_3Tiers_Pattern.Data_Access_Layer
         {         
             string queryString =
             "INSERT INTO ORDER_DRINKS(MSDH, MSHH, SoLuong, TiLeGiam)" +
-            " VALUES(@orderID,@drinkID,@quantity,@sale);";
+            " VALUES(@orderID,@drinkID,@quantity,@sale)";
+            
+            using (SqlConnection connection =
+               new SqlConnection(connectionString))
+            {
+
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@orderID", orderID);
+                command.Parameters.AddWithValue("@drinkID", drinkID);
+                command.Parameters.AddWithValue("@quantity", quantity);
+                command.Parameters.AddWithValue("@sale", sale);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Close();
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+            }
+            Console.WriteLine("DA CHAY QUA TANG DAL ORDER");
+
+        } 
+        
+        public DataTable fetchListOrderDetail()
+        {
+            DataTable dt = new DataTable();
+            string queryString = "SELECT T1.MSDH,T1.MSHH,T1.SoLuong,T1.TiLeGiam,T2.NgayDat" +
+                                    " FROM ORDER_DRINKS AS T1 INNER JOIN BILL_DRINKS AS T2" +
+                                        " ON T1.MSDH = T2.MSDH";
+
             
             SqlCommand command = new SqlCommand(queryString, connection);
-
-            command.Parameters.AddWithValue("@orderID", orderID);
-            command.Parameters.AddWithValue("@drinkID", drinkID);
-            command.Parameters.AddWithValue("@quantity", quantity);
-            command.Parameters.AddWithValue("@sale", sale);
-      
             try
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                reader.Close();
+                dt.Load(reader);
+                return dt;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            
-            Console.WriteLine("Add Order Sucessfully");
-
-        } 
+            return dt;
+        }
     }
 }

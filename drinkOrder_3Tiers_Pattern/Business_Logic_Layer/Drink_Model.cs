@@ -65,6 +65,53 @@ namespace drinkOrder_3Tiers_Pattern.Business_Logic_Layer
             }
         }
 
+        public int GetPrice_FromID(string ID)
+        {
+            
+            try
+            {
+                int res = 0;
+                DrinkDataProvider drink_Data_Provider = new DrinkDataProvider();
+                res=drink_Data_Provider.SelectPrice_FromID(ID);
+                return res; // Important
+            }
+            catch
+            {
+                throw;
+            }        
+        }
+
+        public string GetID_FromName(string name)
+        {
+            try
+            {
+                string res = "";
+                DrinkDataProvider drink_Data_Provider = new DrinkDataProvider();
+                res = drink_Data_Provider.SelectID_FromName(name);
+                return res; // Important
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public DataTable GetName_Drink()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                DrinkDataProvider drink_Data_Provider = new DrinkDataProvider();
+
+                dt = drink_Data_Provider.Select_ListDrinkName();
+                return dt;
+            }
+            catch
+            {
+                throw;
+            }
+
+        }
 
     }
 }
