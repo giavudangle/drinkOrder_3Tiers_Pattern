@@ -37,13 +37,16 @@ namespace drinkOrder_3Tiers_Pattern
         public void loadData_Order()
         {
             DataTable dt = ORDER_MODEL.GetListOrderDetail();
+        
             listOrder.DataSource = dt;
+
+
             this.listOrder.Columns[0].HeaderText = "Order ID";
             this.listOrder.Columns[1].HeaderText = "Product ID";
             this.listOrder.Columns[2].HeaderText = "Quantity";
             this.listOrder.Columns[3].HeaderText = "Sale(%)";
             this.listOrder.Columns[4].HeaderText = "Date";
-            
+
         }
 
         private void listDataDrink_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -159,12 +162,13 @@ namespace drinkOrder_3Tiers_Pattern
             this.Visible = false;
             
 
-            //addOrder_Form.FormClosed += new FormClosedEventHandler(this._addOrderClosed);
+          
+            addOrder_Form.FormClosing += new FormClosingEventHandler(_addOrderClosing);
         }
 
-        private void _addOrderClosed(object sender,FormClosedEventArgs e)
+        private void _addOrderClosing(object sender,FormClosingEventArgs e)
         {
-            this.Show();
+            loadData_Order();
         }
 
         private void btn_Calculate_Click(object sender, EventArgs e)
@@ -186,10 +190,5 @@ namespace drinkOrder_3Tiers_Pattern
            
         }
 
-        private void btn_Refresh_Click(object sender, EventArgs e)
-        {
-            loadData_Drink();
-            loadData_Order();
-        }
     }
 }

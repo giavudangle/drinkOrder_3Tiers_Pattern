@@ -17,6 +17,8 @@ namespace drinkOrder_3Tiers_Pattern.Presentation_Layer
         private static readonly string connectionString = "Data Source=ADMIN;Initial Catalog=QLQUAN;Integrated Security=True";
         private static SqlConnection connection = new SqlConnection(connectionString);
         private Form parentForm;
+
+        public Form1 obj = (Form1)Application.OpenForms["Form1"];
         public AddOrder_Form(Form parentForm)
         {
             this.parentForm = parentForm;
@@ -39,12 +41,11 @@ namespace drinkOrder_3Tiers_Pattern.Presentation_Layer
             ORDER_MODEL.AddOrder(orderID, productID, quantity, sale);
             
 
-
-
-
             MessageBox.Show("ADD ORDER SUCCESSFULLY!");
-            
+           //obj.loadData_Order(); -> Use it when we want callback MainForm :D 
+
             this.Close();
+            this.parentForm.Visible = true;
 
 
 

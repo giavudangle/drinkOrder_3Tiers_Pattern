@@ -80,6 +80,7 @@ namespace drinkOrder_3Tiers_Pattern.Data_Access_Layer
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 dt.Load(reader);
+                connection.Close();
                 return dt;
             }
             catch (Exception ex)
