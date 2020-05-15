@@ -64,14 +64,41 @@ namespace drinkOrder_3Tiers_Pattern.Data_Access_Layer
             }
             Console.WriteLine("DA CHAY QUA TANG DAL ORDER");
 
-        } 
-        
+        }
+
+        public void DeleteOrder(string orderID)
+        {
+            string queryString = "DELETE FROM ORDER_DRINKS WHERE MSDH=@orderID";
+           
+            using (SqlConnection connection =
+               new SqlConnection(connectionString))
+            {
+
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@orderID", orderID);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Close();
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+            }          
+        }
+
         public DataTable fetchListOrderDetail()
         {
             DataTable dt = new DataTable();
-            string queryString = "SELECT T1.MSDH,T1.MSHH,T1.SoLuong,T1.TiLeGiam,T2.NgayDat" +
+            string queryString = "SELECT T1.MSDH,T1.MSHH,T3.TenHang,T1.SoLuong,T1.TiLeGiam,T2.NgayDat" +
                                     " FROM ORDER_DRINKS AS T1 INNER JOIN BILL_DRINKS AS T2" +
-                                        " ON T1.MSDH = T2.MSDH";
+                                        " ON T1.MSDH = T2.MSDH" +
+                                        " JOIN DRINKS AS T3" +
+                                        " ON T1.MSHH=T3.MSHH";
 
             
             SqlCommand command = new SqlCommand(queryString, connection);

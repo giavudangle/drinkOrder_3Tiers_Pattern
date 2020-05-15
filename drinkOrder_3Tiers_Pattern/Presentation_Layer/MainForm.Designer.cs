@@ -44,15 +44,14 @@
             this.btn_AddOrder = new System.Windows.Forms.Button();
             this.btn_Calculate = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.btn_DeleteOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listDataDrink)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
             // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdd.AutoSize = true;
             this.btnAdd.Location = new System.Drawing.Point(12, 523);
             this.btnAdd.Name = "btnAdd";
@@ -64,7 +63,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEdit.AutoSize = true;
             this.btnEdit.Location = new System.Drawing.Point(393, 523);
             this.btnEdit.Name = "btnEdit";
@@ -76,7 +75,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDelete.AutoSize = true;
             this.btnDelete.Location = new System.Drawing.Point(203, 523);
             this.btnDelete.Name = "btnDelete";
@@ -138,9 +137,6 @@
             // 
             // textBox_productID
             // 
-            this.textBox_productID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_productID.Location = new System.Drawing.Point(12, 23);
             this.textBox_productID.Name = "textBox_productID";
             this.textBox_productID.Size = new System.Drawing.Size(73, 20);
@@ -148,9 +144,6 @@
             // 
             // textBox_Name
             // 
-            this.textBox_Name.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Name.Location = new System.Drawing.Point(133, 23);
             this.textBox_Name.Name = "textBox_Name";
             this.textBox_Name.Size = new System.Drawing.Size(169, 20);
@@ -158,9 +151,6 @@
             // 
             // textBox_price
             // 
-            this.textBox_price.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_price.Location = new System.Drawing.Point(344, 23);
             this.textBox_price.Name = "textBox_price";
             this.textBox_price.Size = new System.Drawing.Size(75, 20);
@@ -168,9 +158,6 @@
             // 
             // textBox_status
             // 
-            this.textBox_status.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_status.Location = new System.Drawing.Point(458, 23);
             this.textBox_status.Name = "textBox_status";
             this.textBox_status.Size = new System.Drawing.Size(73, 20);
@@ -200,27 +187,31 @@
             // 
             // listOrder
             // 
+            this.listOrder.AllowDrop = true;
             this.listOrder.AllowUserToOrderColumns = true;
             this.listOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.listOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.listOrder.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.listOrder.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.listOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listOrder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.listOrder.Location = new System.Drawing.Point(572, 106);
+            this.listOrder.Location = new System.Drawing.Point(572, 49);
             this.listOrder.MultiSelect = false;
             this.listOrder.Name = "listOrder";
             this.listOrder.ReadOnly = true;
             this.listOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listOrder.Size = new System.Drawing.Size(508, 468);
+            this.listOrder.Size = new System.Drawing.Size(637, 468);
             this.listOrder.TabIndex = 14;
+            this.listOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listOrder_CellContentClick);
             // 
             // btn_AddOrder
             // 
-            this.btn_AddOrder.Location = new System.Drawing.Point(598, 23);
+            this.btn_AddOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_AddOrder.Location = new System.Drawing.Point(678, 523);
             this.btn_AddOrder.Name = "btn_AddOrder";
-            this.btn_AddOrder.Size = new System.Drawing.Size(181, 51);
+            this.btn_AddOrder.Size = new System.Drawing.Size(113, 39);
             this.btn_AddOrder.TabIndex = 23;
             this.btn_AddOrder.Text = "ADD ORDER";
             this.btn_AddOrder.UseVisualStyleBackColor = true;
@@ -228,9 +219,10 @@
             // 
             // btn_Calculate
             // 
-            this.btn_Calculate.Location = new System.Drawing.Point(879, 23);
+            this.btn_Calculate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Calculate.Location = new System.Drawing.Point(1017, 523);
             this.btn_Calculate.Name = "btn_Calculate";
-            this.btn_Calculate.Size = new System.Drawing.Size(186, 51);
+            this.btn_Calculate.Size = new System.Drawing.Size(113, 39);
             this.btn_Calculate.TabIndex = 24;
             this.btn_Calculate.Text = "CALCULATE";
             this.btn_Calculate.UseVisualStyleBackColor = true;
@@ -238,21 +230,36 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.label5.Location = new System.Drawing.Point(792, 86);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label5.Location = new System.Drawing.Point(843, 23);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 17);
             this.label5.TabIndex = 25;
             this.label5.Text = "ORDER LIST";
             this.label5.UseCompatibleTextRendering = true;
             // 
+            // btn_DeleteOrder
+            // 
+            this.btn_DeleteOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_DeleteOrder.Location = new System.Drawing.Point(843, 523);
+            this.btn_DeleteOrder.Name = "btn_DeleteOrder";
+            this.btn_DeleteOrder.Size = new System.Drawing.Size(113, 39);
+            this.btn_DeleteOrder.TabIndex = 26;
+            this.btn_DeleteOrder.Text = "DELETE ORDER";
+            this.btn_DeleteOrder.UseVisualStyleBackColor = true;
+            this.btn_DeleteOrder.Click += new System.EventHandler(this.btn_DeleteOrder_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1077, 574);
+            this.ClientSize = new System.Drawing.Size(1221, 574);
+            this.Controls.Add(this.btn_DeleteOrder);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_Calculate);
             this.Controls.Add(this.btn_AddOrder);
@@ -295,6 +302,7 @@
         private System.Windows.Forms.Button btn_Calculate;
         public System.Windows.Forms.TextBox textBox_status;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_DeleteOrder;
     }
 }
 

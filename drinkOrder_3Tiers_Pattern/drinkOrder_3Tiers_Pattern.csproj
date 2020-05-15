@@ -58,19 +58,19 @@
     <Compile Include="Presentation_Layer\AddOrder_Form.Designer.cs">
       <DependentUpon>AddOrder_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation_Layer\Form1.cs">
+    <Compile Include="Presentation_Layer\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation_Layer\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Presentation_Layer\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentation_Layer\AddOrder_Form.resx">
       <DependentUpon>AddOrder_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation_Layer\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation_Layer\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

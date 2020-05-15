@@ -38,6 +38,20 @@ namespace drinkOrder_3Tiers_Pattern.Business_Logic_Layer
             }
         }
 
+        public void DeleteOrder(string orderID)
+        {
+            try
+            {
+                OrderDataProvider orderDataProvider = new OrderDataProvider();
+                orderDataProvider.DeleteOrder(orderID);
+                return;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         public DataTable GetListOrderDetail()
         {
             try

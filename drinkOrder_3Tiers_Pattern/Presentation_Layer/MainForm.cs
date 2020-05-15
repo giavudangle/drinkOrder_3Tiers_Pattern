@@ -43,9 +43,10 @@ namespace drinkOrder_3Tiers_Pattern
 
             this.listOrder.Columns[0].HeaderText = "Order ID";
             this.listOrder.Columns[1].HeaderText = "Product ID";
-            this.listOrder.Columns[2].HeaderText = "Quantity";
-            this.listOrder.Columns[3].HeaderText = "Sale(%)";
-            this.listOrder.Columns[4].HeaderText = "Date";
+            this.listOrder.Columns[2].HeaderText = "Product Name";
+            this.listOrder.Columns[3].HeaderText = "Quantity";
+            this.listOrder.Columns[4].HeaderText = "Sale(%)";
+            this.listOrder.Columns[5].HeaderText = "Date Order";
 
         }
 
@@ -180,8 +181,8 @@ namespace drinkOrder_3Tiers_Pattern
             Drink_Model DRINK_MODEL = new Drink_Model();
             int getMoney = DRINK_MODEL.GetPrice_FromID(ID);
            
-            int quantity = (int) listOrder.SelectedRows[0].Cells[2].Value;
-            int sale = (int)listOrder.SelectedRows[0].Cells[2].Value;
+            int quantity = (int) listOrder.SelectedRows[0].Cells[3].Value;
+            int sale = (int)listOrder.SelectedRows[0].Cells[4].Value;
             
             double hihi = sale * 1.0 / 100;
             int temp = getMoney * quantity;
@@ -190,5 +191,20 @@ namespace drinkOrder_3Tiers_Pattern
            
         }
 
+        private void btn_DeleteOrder_Click(object sender, EventArgs e)
+        {
+                       
+            string orderID = listOrder.SelectedRows[0].Cells[0].Value.ToString();
+            ORDER_MODEL.DeleteOrder(orderID);
+            loadData_Order();
+            MessageBox.Show("Delete Order Successfully!");
+        }
+
+        private void listOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        
     }
 }
